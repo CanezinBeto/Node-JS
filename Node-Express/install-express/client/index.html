@@ -10,6 +10,16 @@
 
 <body>
   <h1>Hello World</h1>
+
+  <p>Hello Mother</p>
+
+  <script>
+    fetch('http://192.168.0.11:5000/', { method: 'POST' }).then(res => res.text()).then(html => console.log(html))
+
+    fetch('http://192.168.0.11:5000/', { method: 'PUT' }).then(res => res.text()).then(html => console.log(html))
+
+    fetch('http://192.168.0.11:5000/', { method: 'DELETE' }).then(res => res.text()).then(html => console.log(html))
+  </script>
 </body>
 
 </html>
