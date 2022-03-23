@@ -1,10 +1,22 @@
 const express = require('express')
 const path = require('path')
+const bodyParse = require('body-parser')
 const app = express()
 const PORT = 5000
 
 // Servindo arquivos estáticos
 app.use('/meusite', express.static(path.join(__dirname, 'client')))
+
+// Midlewere
+const consoleMethod = (req, res, next) => {
+  console.log(req.method)
+  console.log(req.body)
+  next()
+}
+
+// Chamando o midlewere em qualquer método
+app.use('/', bodyParse.json())
+app.use('/', consoleMethod)
 
 // Método GET
 app.get('/', (req, res) => {
