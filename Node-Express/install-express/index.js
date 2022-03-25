@@ -7,14 +7,14 @@ const PORT = 5000
 // Servindo arquivos estáticos
 app.use('/meusite', express.static(path.join(__dirname, 'client')))
 
-// Midlewere
+// Middlewere
 const consoleMethod = (req, res, next) => {
   console.log(req.method)
   console.log(req.body)
   next()
 }
 
-// Chamando o midlewere em qualquer método
+// Chamando o middlewere em qualquer método
 app.use('/', bodyParse.json())
 app.use('/', consoleMethod)
 
